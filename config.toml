@@ -1,0 +1,13 @@
+[save]
+root = "D:\\Camera_reader\\Результаты"  # Base directory for saving images
+part_name = "test"                      # Default part name
+
+[log]
+path = "C:\\M350\\LaserStudio\\x64\\Release\\Logs\\23.04.2025.log"  # Log file to monitor
+
+[capture]
+delay = 11.25  # Delay between captures in seconds
+
+[camera]
+retry_attempts = 6  # Camera connection attempts
+retry_delay = 10    # Seconds between retry attempts
