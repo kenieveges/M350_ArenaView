@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import logging
 from datetime import datetime
 from typing import Optional, List
 
@@ -19,20 +20,32 @@ class CameraController:
         self.retry_delay = retry_delay
         self.devices = None
         self.device = None
-        self.tl_stream_nodemap = None
         self.buffer = None
+        self.tl_stream_nodemap = None
+        
+        self.logger = logging.getLogger(__name__)
+        self.logger.info("Initializing camera controller")
+        
         
         self._initialize_camera()
 
     def _initialize_camera(self):
         """Initialize camera with retry logic."""
-        self.devices = self._create_device_with_retries()
-        if not self.devices:
-            raise RuntimeError("Failed to initialize camera - no devices found")
-            
-        self.device = system.select_device(self.devices)
-        self._configure_stream_settings()
-        print("Camera initialized successfully")
+        self.logger.info("Starting camera initialization (retries: %s, delay: %ss)", 
+                        self.retry_attempts, self.retry_delay)
+        try:
+            self.logger.debug("Attempting camera initialization")
+            self.devices = self._create_device_with_retries()
+            if not self.devices:
+                self.logger.error("No camera devices found after %s attempts", self.retry_attempts)
+                raise RuntimeError("Failed to initialize camera - no devices found")
+
+            self.device = system.select_device(self.devices)
+            self._configure_stream_settings()
+            self.logger.info("Camera initialized successfully")
+        except Exception as e:
+            self.logger.exception("Camera initialization failed %s", e)
+            raise
 
     def _configure_stream_settings(self):
         """Configure the stream settings for the camera."""
@@ -48,23 +61,27 @@ class CameraController:
             List of devices if successful, None otherwise
         """
         for attempt in range(self.retry_attempts):
+            current_attempt = attempt + 1
+            self.logger.debug("Connection attempt %s/%s", current_attempt, self.retry_attempts)
             devices = system.create_device()
+            
             if devices:
+                self.logger.info("Camera connection established on attempt %s", current_attempt)
                 return devices
                 
-            print(f'Attempt {attempt + 1} of {self.retry_attempts}: '
-                  f'waiting {self.retry_delay} seconds for device...')
-            self._countdown(self.retry_delay)
-            
-        print('No device found! Please connect a device and try again.')
+            if current_attempt < self.retry_attempts:  # Only log if there are more attempts
+                self.logger.warning("Connection failed, retrying in %s seconds...", self.retry_delay)
+                self._countdown(self.retry_delay)
+                
+        self.logger.error("No camera devices found after %s attempts", self.retry_attempts)
         return None
 
     def _countdown(self, seconds: int):
-        """Display a countdown timer."""
+        """Display a countdown timer with logging."""
+        self.logger.debug("Starting %s second countdown", seconds)
         for remaining in range(seconds, 0, -1):
-            print(f'{remaining} seconds remaining...', end='\r')
+            self.logger.debug("%s seconds remaining...", remaining)
             time.sleep(1)
-        print(' ' * 20, end='\r')  # Clear line
 
     def capture_image(self, save_folder: str, layer: int, project_name: str) -> bool:
         """

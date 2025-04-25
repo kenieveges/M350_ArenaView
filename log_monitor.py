@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import logging
 from datetime import datetime
 from typing import Optional, List
 from camera_controller import CameraController
@@ -26,6 +27,9 @@ class LogMonitor:
             part_name: Name of the part being printed
             capture_delay: Delay between capture events in seconds
         """
+        self.logger = logging.getLogger(__name__)
+        self.logger.info("Initializing log monitor for %s", log_path)
+        
         self.log_path = log_path
         self.camera = camera
         self.save_root = save_root
@@ -33,6 +37,8 @@ class LogMonitor:
         self.capture_delay = capture_delay
         self.project_name = project_name
         self.last_layer = -1
+        self.logger = logging.getLogger(__name__)
+        self.logger.info("Initializing log monitor for %s", log_path)
 
     def monitor(self):
         """Start monitoring the log file for events."""
@@ -66,22 +72,27 @@ class LogMonitor:
 
     def _handle_powder_event(self):
         """Handle powder deposition event by capturing images."""
-        if self.last_layer < 0:
-            print("Warning: Powder  detected but no layer information available")
-            return
+        try:
+            if self.last_layer < 0:
+                self.logger.warning("Powder event detected but no layer information available")
+                return
+                
+            current_layer = self.last_layer + 1
+            timestamp = datetime.now().strftime("%Y.%m.%d_%H:%M:%S_%f")
             
-        current_layer = self.last_layer + 1
-        timestamp = datetime.now().strftime("%Y.%m.%d_%H:%M:%S_%f")
-        
-        print(f"Powder event detected at {timestamp} for layer {current_layer}")
-        
-        # Capture powder deposition image
-        powder_folder = os.path.join(self.save_root, self.part_name, "Отсыпка")
-        self.camera.capture_image(powder_folder, current_layer, self.project_name)
-        
-        # Wait and capture start image
-        print(f"Waiting {self.capture_delay} seconds before next capture...")
-        time.sleep(self.capture_delay)
-        
-        start_folder = os.path.join(self.save_root, self.part_name, "Старт")
-        self.camera.capture_image(start_folder, current_layer)
+            self.logger.info("Powder event detected at %s for layer %s", timestamp, current_layer)
+            
+            # Capture powder deposition image
+            powder_folder = os.path.join(self.save_root, self.part_name, "Отсыпка")
+            self.camera.capture_image(powder_folder, current_layer, self.project_name)
+            
+            # Wait and capture start image
+            self.logger.debug("Waiting %s seconds before next capture...", self.capture_delay)
+            time.sleep(self.capture_delay)
+            
+            start_folder = os.path.join(self.save_root, self.part_name, "Старт")
+            self.camera.capture_image(start_folder, current_layer, self.project_name)
+            
+        except Exception as e:
+            self.logger.exception("Error handling powder event: %s", e)
+            raise

@@ -12,3 +12,9 @@ delay = 11.25  # Delay between captures in seconds
 [camera]
 retry_attempts = 6  # Camera connection attempts
 retry_delay = 10    # Seconds between retry attempts
+
+[logging]
+level = "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+file = "app.log"  # Log file path
+max_size = 1048576  # 1MB
+backup_count = 3  # Keep 3 rotated logs

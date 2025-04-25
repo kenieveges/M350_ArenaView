@@ -1,11 +1,14 @@
 from config_loader import load_config
 from camera_controller import CameraController
 from log_monitor import LogMonitor
+from logger import setup_logging
 
 def main():
+    logger = setup_logging()
     try:
         # Load configuration first as it might fail
         config = load_config()
+        logger.info("Application starting with config: %s", config)
         
         # Validate essential configuration
         if not all(key in config['save'] for key in ['root', 'part_name', 'project_name']):
