@@ -14,7 +14,8 @@ class LogMonitor:
     """Monitor SLM printer log files for specific events and trigger camera captures."""
     
     def __init__(self, log_path: str, camera: CameraController, 
-                 save_root: str, part_name: str, capture_delay: float):
+                 save_root: str, part_name: str, capture_delay: float,
+                 project_name: str):
         """
         Initialize log monitor.
         
@@ -30,6 +31,7 @@ class LogMonitor:
         self.save_root = save_root
         self.part_name = part_name
         self.capture_delay = capture_delay
+        self.project_name = project_name
         self.last_layer = -1
 
     def monitor(self):
@@ -75,7 +77,7 @@ class LogMonitor:
         
         # Capture powder deposition image
         powder_folder = os.path.join(self.save_root, self.part_name, "Отсыпка")
-        self.camera.capture_image(powder_folder, current_layer)
+        self.camera.capture_image(powder_folder, current_layer, self.project_name)
         
         # Wait and capture start image
         print(f"Waiting {self.capture_delay} seconds before next capture...")
@@ -83,32 +85,3 @@ class LogMonitor:
         
         start_folder = os.path.join(self.save_root, self.part_name, "Старт")
         self.camera.capture_image(start_folder, current_layer)
-
-
-def main():
-    # Configuration - could be moved to config file or command line args
-    config = {
-        'save_root': "D:\\Camera_reader\\Результаты",
-        'part_name': "test",
-        'log_path': r'C:\\M350\\LaserStudio\\x64\\Release\\Logs\\23.04.2025.log',
-        'capture_delay': 11.25  # seconds
-    }
-    
-    try:
-        with CameraController() as camera:
-            monitor = LogMonitor(
-                log_path=config['log_path'],
-                camera=camera,
-                save_root=config['save_root'],
-                part_name=config['part_name'],
-                capture_delay=config['capture_delay']
-            )
-            monitor.monitor()
-    except Exception as e:
-        print(f"Fatal error: {e}")
-        return 1
-        
-    return 0
-
-if __name__ == "__main__":
-    sys.exit(main())

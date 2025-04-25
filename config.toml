@@ -1,6 +1,7 @@
 [save]
 root = "D:\\Camera_reader\\Результаты"  # Base directory for saving images
 part_name = "test"                      # Default part name
+project_name = "SLM_ProjectA"
 
 [log]
 path = "C:\\M350\\LaserStudio\\x64\\Release\\Logs\\23.04.2025.log"  # Log file to monitor

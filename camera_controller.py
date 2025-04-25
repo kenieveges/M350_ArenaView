@@ -14,10 +14,9 @@ from arena_api.buffer import BufferFactory
 class CameraController:
     """Controller for managing camera operations including initialization, capture, and cleanup."""
     
-    DEFAULT_RETRY_ATTEMPTS = 6
-    DEFAULT_RETRY_DELAY = 10  # seconds
-    
-    def __init__(self):
+    def __init__(self, retry_attempts: int = 6, retry_delay: int = 10):
+        self.retry_attempts = retry_attempts
+        self.retry_delay = retry_delay
         self.devices = None
         self.device = None
         self.tl_stream_nodemap = None
@@ -41,26 +40,21 @@ class CameraController:
         self.tl_stream_nodemap['StreamAutoNegotiatePacketSize'].value = True
         self.tl_stream_nodemap['StreamPacketResendEnable'].value = True
 
-    def _create_device_with_retries(self, max_attempts: int = DEFAULT_RETRY_ATTEMPTS, 
-                                  retry_delay: int = DEFAULT_RETRY_DELAY) -> Optional[List]:
+    def _create_device_with_retries(self) -> Optional[List]:
         """
         Attempt to create a camera device with retries.
         
-        Args:
-            max_attempts: Maximum number of connection attempts
-            retry_delay: Delay between attempts in seconds
-            
         Returns:
             List of devices if successful, None otherwise
         """
-        for attempt in range(max_attempts):
+        for attempt in range(self.retry_attempts):
             devices = system.create_device()
             if devices:
                 return devices
                 
-            print(f'Attempt {attempt + 1} of {max_attempts}: '
-                  f'waiting {retry_delay} seconds for device...')
-            self._countdown(retry_delay)
+            print(f'Attempt {attempt + 1} of {self.retry_attempts}: '
+                  f'waiting {self.retry_delay} seconds for device...')
+            self._countdown(self.retry_delay)
             
         print('No device found! Please connect a device and try again.')
         return None
@@ -72,7 +66,7 @@ class CameraController:
             time.sleep(1)
         print(' ' * 20, end='\r')  # Clear line
 
-    def capture_image(self, save_folder: str, layer: int) -> bool:
+    def capture_image(self, save_folder: str, layer: int, project_name: str) -> bool:
         """
         Capture and save an image from the camera.
         
@@ -86,7 +80,7 @@ class CameraController:
         try:
             self.device.start_stream()
             self.buffer = self.device.get_buffer()
-            self._save_image(save_folder, layer)
+            self._save_image(save_folder, layer, project_name)
             return True
         except Exception as e:
             print(f"Error capturing image: {e}")
@@ -94,7 +88,7 @@ class CameraController:
         finally:
             self._cleanup_capture()
 
-    def _save_image(self, save_folder: str, layer: int):
+    def _save_image(self, save_folder: str, layer: int, project_name: str):
         """Save the captured image to disk."""
         pixel_format = PixelFormat.BGR8
         converted_buffer = None
@@ -104,7 +98,7 @@ class CameraController:
             timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S_%f")
             
             os.makedirs(save_folder, exist_ok=True)
-            filename = f'image_{timestamp}_layer_{layer}.tiff'
+            filename = f'{project_name}_{timestamp}_layer_{layer}.tiff'
             output_path = os.path.join(save_folder, filename)
 
             writer = Writer()
