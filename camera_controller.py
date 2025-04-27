@@ -4,7 +4,6 @@ import time
 import logging
 from datetime import datetime
 from typing import Optional, List
-
 from arena_api import enums as arena_enums
 from arena_api.enums import PixelFormat
 from arena_api.__future__.save import Writer

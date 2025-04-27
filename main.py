@@ -1,9 +1,46 @@
+import sys
 from config_loader import load_config
 from camera_controller import CameraController
 from log_monitor import LogMonitor
 from logger import setup_logging
 
 def main():
+    """
+    Main entry point for the SLM printer monitoring application.
+    
+    Initializes the system, monitors the printer log for powder deposition events,
+    and captures images using a connected camera when events occur.
+
+    Workflow:
+        1. Loads configuration from TOML file
+        2. Validates required configuration parameters
+        3. Initializes camera with specified retry behavior
+        4. Starts monitoring the printer log file
+        5. Captures images on powder deposition events
+
+    Returns:
+        int: Return code indicating success or failure:
+            - 0: Successful execution
+            - 1: Error occurred (configuration, camera, or monitoring failure)
+
+    Raises:
+        FileNotFoundError: If configuration file is missing
+        KeyError: If required configuration keys are missing
+        ValueError: If configuration values are invalid
+        RuntimeError: If camera initialization fails
+        Exception: For unexpected errors during monitoring
+
+    Example:
+        To run from command line:
+        >>> python main.py
+        or with custom config:
+        >>> python main.py --config alternative_config.toml
+
+    Notes:
+        - Requires properly formatted config.toml in working directory
+        - Camera must be connected before startup
+        - Log file must be accessible
+    """
     logger = setup_logging()
     try:
         # Load configuration first as it might fail
@@ -25,19 +62,23 @@ def main():
                 part_name=config['save']['part_name'],
                 capture_delay=config['capture']['delay'],
                 project_name=config['save']['project_name']
-            )
+            )   
             monitor.monitor()
-            
     except FileNotFoundError as e:
-        print(f"Configuration error: {e}")
+        logger.exception("Configuration file not found at specified path: %s", str(e))
         return 1
     except KeyError as e:
-        print(f"Missing required configuration key: {e}")
+        logger.error("Missing required configuration key: %s", str(e))
+        logger.debug("Full configuration dump: %s", config)
         return 1
     except ValueError as e:
-        print(f"Configuration error: {e}")
+        logger.error("Invalid configuration value: %s", str(e))
         return 1
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        logger.exception("Unexpected error occurred during execution: %s", str(e))
         return 1
     return 0
+
+if __name__ == "__main__":
+    main()
+    sys.exit(main())
