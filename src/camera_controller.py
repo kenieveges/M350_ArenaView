@@ -21,7 +21,6 @@ class CameraController:
         self.device = None
         self.buffer = None
         self.tl_stream_nodemap = None
-        
         self.logger = logging.getLogger(__name__)
         self.logger.info("Initializing camera controller")
         

@@ -26,9 +26,9 @@ class LogMonitor:
             project_name: Project name for image file prefixes
         """
         self.logger = logging.getLogger(__name__)
-        self.log_path = Path(log_path)
+        self.log_path = Path(log_path).absolute()
+        self.save_root = Path(save_root).absolute()
         self.camera = camera
-        self.save_root = save_root
         self.part_name = part_name
         self.capture_delay = capture_delay
         self.project_name = project_name
@@ -59,16 +59,23 @@ class LogMonitor:
     def _process_existing_log(self):
         """Process all existing content in the log file."""
         try:
-            with open(self.log_path, 'r', encoding='cp1252') as f:
+            with open(self.log_path, 'r', encoding='utf-8') as f:  # Explicit UTF-8 encoding
                 for line in f:
                     self._process_line(line)
                 self.last_position = f.tell()
-                self.logger.debug("Processed %d bytes of existing log", self.last_position)
+            self.logger.debug("Processed %d bytes of existing log", self.last_position)
+        except UnicodeDecodeError:
+            # Fallback to latin1 if UTF-8 fails
+            with open(self.log_path, 'r', encoding='utf-8') as f:
+                self.logger.warning("Using latin1 fallback encoding for log file")
+                for line in f:
+                    self._process_line(line)
+                self.last_position = f.tell()
         except FileNotFoundError:
             self.logger.error("Log file not found: %s", self.log_path)
             raise
         except Exception as e:
-            self.logger.exception("Failed to process existing log content: %s", e)
+            self.logger.exception("Failed to process existing log content")
             raise
 
     def _start_watchdog(self):
@@ -95,11 +102,18 @@ class LogMonitor:
     def check_for_updates(self):
         """Handle file change events detected by watchdog."""
         try:
-            with open(self.log_path, 'r', encoding='cp1252') as f:
-                f.seek(self.last_position)
-                for line in f:
-                    self._process_line(line)
-                self.last_position = f.tell()
+            try:
+                with open(self.log_path, 'r', encoding='utf-8') as f:
+                    f.seek(self.last_position)
+                    for line in f:
+                        self._process_line(line)
+                    self.last_position = f.tell()
+            except UnicodeDecodeError:
+                with open(self.log_path, 'r', encoding='latin1') as f:
+                    f.seek(self.last_position)
+                    for line in f:
+                        self._process_line(line)
+                    self.last_position = f.tell()
         except Exception as e:
             self.logger.error("Error reading log updates: %s", e)
 
@@ -123,28 +137,57 @@ class LogMonitor:
             raise
 
     def _handle_powder_event(self):
-        """Handle powder deposition event by capturing images."""
-        if self.last_layer < 0:
-            self.logger.warning("Powder event detected with invalid layer number")
-            return
-
-        current_layer = self.last_layer + 1
-        timestamp = datetime.now().strftime("%Y.%m.%d_%H:%M:%S_%f")
-        self.logger.info("Powder event detected at %s for layer %d", timestamp, current_layer)
+        """Handle powder deposition event with comprehensive logging and error handling.
         
+        Workflow:
+        1. Validates layer information
+        2. Captures powder deposition image
+        3. Waits specified delay
+        4. Captures start layer image
+        5. Maintains all directory structures
+        
+        Raises:
+            RuntimeError: If camera capture fails after retries
+        """
         try:
-            # First capture: powder deposition
-            powder_folder = os.path.join(self.save_root, self.part_name, "Отсыпка")
-            self._capture_image(powder_folder, current_layer)
+            # Validate layer information
+            if self.last_layer < -1:
+                self.logger.warning("Powder event detected with invalid layer number")
+                return
+
+            current_layer = self.last_layer + 1
+            timestamp = datetime.now().strftime("%Y.%m.%d_%H:%M:%S_%f")
+            self.logger.info("Processing powder event for layer %d at %s", 
+                            current_layer, timestamp)
+
+            # Create necessary directories
+            powder_dir = Path(self.save_root) / self.part_name / "Отсыпка"
+            start_dir = Path(self.save_root) / self.part_name / "Старт"
             
-            # Second capture: after delay
-            self.logger.debug("Waiting %.2f seconds before next capture", self.capture_delay)
+            powder_dir.mkdir(parents=True, exist_ok=True)
+            start_dir.mkdir(parents=True, exist_ok=True)
+
+            # First capture - powder deposition
+            self.logger.debug("Capturing powder deposition image...")
+            if not self.camera.capture_image(str(powder_dir), current_layer, self.project_name):
+                raise RuntimeError("Failed to capture powder deposition image")
+
+            # Wait before second capture
+            self.logger.debug("Waiting %.2f seconds before start capture...", self.capture_delay)
             time.sleep(self.capture_delay)
-            
-            start_folder = os.path.join(self.save_root, self.part_name, "Старт")
-            self._capture_image(start_folder, current_layer)
-        except Exception:
-            self.logger.exception("Failed to complete powder event capture")
+
+            # Second capture - layer start
+            self.logger.debug("Capturing layer start image...")
+            if not self.camera.capture_image(str(start_dir), current_layer, self.project_name):
+                raise RuntimeError("Failed to capture layer start image")
+
+            self.logger.info("Successfully processed powder event for layer %d", current_layer)
+
+        except RuntimeError as e:
+            self.logger.error("Powder event processing failed: %s", e)
+            raise  # Re-raise to allow upper-level handling
+        except Exception as e:
+            self.logger.exception("Unexpected error during powder event handling")
             raise
 
     def _capture_image(self, folder: str, layer: int):

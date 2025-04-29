@@ -1,8 +1,15 @@
 import sys
+from pathlib import Path
 from config_loader import load_config
 from camera_controller import CameraController
 from log_monitor import LogMonitor
 from logger import setup_logging
+
+PROJECT_ROOT = Path(__file__).parent.parent
+
+def get_config_path():
+    """Resolve config file path relative to project root"""
+    return PROJECT_ROOT / "config" / "config.toml"
 
 def main():
     """
@@ -43,22 +50,25 @@ def main():
     """
     logger = setup_logging()
     try:
+        config_path = get_config_path()
         # Load configuration first as it might fail
-        config = load_config()
+        config = load_config(config_path)
         logger.info("Application starting with config: %s", config)
         
         # Validate essential configuration
         if not all(key in config['save'] for key in ['root', 'part_name', 'project_name']):
             raise ValueError("Missing required save configuration")
-        
+        # Resolve all paths relative to project root
+        log_path = PROJECT_ROOT / config['log']['path']
+        save_root = PROJECT_ROOT / config['save']['root']
         with CameraController(
             retry_attempts=config['camera']['retry_attempts'],
-            retry_delay=config['camera']['retry_delay']
+            retry_delay=config['camera']['retry_delay'],
         ) as camera:
             monitor = LogMonitor(
-                log_path=config['log']['path'],
+                log_path=str(log_path),
                 camera=camera,
-                save_root=config['save']['root'],
+                save_root=str(save_root),
                 part_name=config['save']['part_name'],
                 capture_delay=config['capture']['delay'],
                 project_name=config['save']['project_name']
