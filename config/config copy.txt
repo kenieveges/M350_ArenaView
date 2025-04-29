@@ -1,10 +1,10 @@
 [save]
-root = "A:\\A_Documents\\2025.04.25_M350_ArenaView\\output"  # Base directory for saving images
+root = "A:\\A_Documents\\2025.04.25_M350_ArenaView\\results"  # Base directory for saving images
 part_name = "test"                      # Default part name
 project_name = "SLM_ProjectA"
 
 [log]
-path = "A:\\A_Documents\\2025.04.25_M350_ArenaView\\2025.04.28.log"  # Log file to monitor
+path = "A:\\A_Documents\\2025.04.25_M350_ArenaView\\2025.04.27.log"  # Log file to monitor
 
 [capture]
 delay = 11.25  # Delay between captures in seconds
