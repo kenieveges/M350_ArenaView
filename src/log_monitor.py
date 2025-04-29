@@ -75,7 +75,7 @@ class LogMonitor:
             self.logger.error("Log file not found: %s", self.log_path)
             raise
         except Exception as e:
-            self.logger.exception("Failed to process existing log content")
+            self.logger.exception("Failed to process existing log content: %s", e)
             raise
 
     def _start_watchdog(self):
@@ -142,7 +142,7 @@ class LogMonitor:
         Workflow:
         1. Validates layer information
         2. Captures powder deposition image
-        3. Waits specified delay
+        3. Waits specified delay with countdown logging
         4. Captures start layer image
         5. Maintains all directory structures
         
@@ -172,9 +172,11 @@ class LogMonitor:
             if not self.camera.capture_image(str(powder_dir), current_layer, self.project_name):
                 raise RuntimeError("Failed to capture powder deposition image")
 
-            # Wait before second capture
-            self.logger.debug("Waiting %.2f seconds before start capture...", self.capture_delay)
-            time.sleep(self.capture_delay)
+            # Wait before second capture with countdown logging
+            self.logger.info("Waiting %.2f seconds before start capture...", self.capture_delay)
+            for remaining in range(int(self.capture_delay), 0, -1):
+                self.logger.info("Countdown: %d seconds remaining...", remaining)
+                time.sleep(1)
 
             # Second capture - layer start
             self.logger.debug("Capturing layer start image...")
@@ -187,7 +189,7 @@ class LogMonitor:
             self.logger.error("Powder event processing failed: %s", e)
             raise  # Re-raise to allow upper-level handling
         except Exception as e:
-            self.logger.exception("Unexpected error during powder event handling")
+            self.logger.exception("Unexpected error during powder event handling: %s", e)
             raise
 
     def _capture_image(self, folder: str, layer: int):
