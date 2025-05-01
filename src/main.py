@@ -48,12 +48,12 @@ def main():
         - Camera must be connected before startup
         - Log file must be accessible
     """
-    logger = setup_logging()
     try:
         config_path = get_config_path()
+        logger = setup_logging(config_path)
         # Load configuration first as it might fail
         config = load_config(config_path)
-        logger.info("Application starting with config: %s", config)
+        logger.info("Application starting with config:\n%s", config)
         
         # Validate essential configuration
         if not all(key in config['save'] for key in ['root', 'part_name', 'project_name']):
@@ -65,14 +65,16 @@ def main():
             retry_attempts=config['camera']['retry_attempts'],
             retry_delay=config['camera']['retry_delay'],
         ) as camera:
+            encoding = config['log'].get('encoding', 'utf-8')
             monitor = LogMonitor(
                 log_path=str(log_path),
                 camera=camera,
                 save_root=str(save_root),
                 part_name=config['save']['part_name'],
                 capture_delay=config['capture']['delay'],
-                project_name=config['save']['project_name']
-            )   
+                project_name=config['save']['project_name'],
+                encoding=encoding
+            )
             monitor.monitor()
     except FileNotFoundError as e:
         logger.exception("Configuration file not found at specified path: %s", str(e))
@@ -90,5 +92,4 @@ def main():
     return 0
 
 if __name__ == "__main__":
-    main()
     sys.exit(main())

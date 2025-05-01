@@ -98,7 +98,7 @@ class CameraController:
             self._save_image(save_folder, layer, project_name)
             return True
         except Exception as e:
-            print(f"Error capturing image: {e}")
+            self.logger.error(f"Error capturing image: {e}")
             return False
         finally:
             self._cleanup_capture()
@@ -122,9 +122,9 @@ class CameraController:
                        compression=arena_enums.SC_TIFF_COMPRESSION_LIST.SC_NO_TIFF_COMPRESSION, 
                        cmykTags=False)
             
-            print(f'Image saved to {output_path}')
+            self.logger.info(f'Image saved to {output_path}')
         except Exception as e:
-            print(f"Error saving image: {e}")
+            self.logger.error(f"Error saving image: {e}")
         finally:
             if converted_buffer:
                 BufferFactory.destroy(converted_buffer)
@@ -137,7 +137,7 @@ class CameraController:
             if hasattr(self, 'device') and self.device:
                 self.device.stop_stream()
         except Exception as e:
-            print(f"Error during cleanup: {e}")
+            self.logger.error(f"Error during cleanup: {e}")
 
     def __enter__(self):
         return self
@@ -151,6 +151,6 @@ class CameraController:
             if hasattr(self, 'device') and self.device:
                 self.device.stop_stream()
                 system.destroy_device()
-                print('Camera resources released')
+                self.logger.info('Camera resources released')
         except Exception as e:
-            print(f"Error cleaning up camera: {e}")
+            self.logger.error(f"Error cleaning up camera: {e}")

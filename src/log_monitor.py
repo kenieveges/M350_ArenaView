@@ -1,3 +1,4 @@
+import re
 import os
 import time
 import logging
@@ -13,7 +14,7 @@ class LogMonitor:
     
     def __init__(self, log_path: str, camera: CameraController,
                  save_root: str, part_name: str, capture_delay: float,
-                 project_name: str):
+                 project_name: str, encoding="utf-8"):
         """
         Initialize log monitor.
         
@@ -28,13 +29,15 @@ class LogMonitor:
         self.logger = logging.getLogger(__name__)
         self.log_path = Path(log_path).absolute()
         self.save_root = Path(save_root).absolute()
+        self.encoding = encoding
         self.camera = camera
         self.part_name = part_name
         self.capture_delay = capture_delay
         self.project_name = project_name
-        self.last_position = 0
-        self.last_layer = -1
+        self.layer_number = None
+        self.last_position = None
         self.observer = None
+        
         self.logger.info("Initialized log monitor for %s", log_path)
 
     def monitor(self):
@@ -55,28 +58,6 @@ class LogMonitor:
             self.logger.exception("Critical monitoring error occurred: %s", e)
         finally:
             self._shutdown()
-
-    def _process_existing_log(self):
-        """Process all existing content in the log file."""
-        try:
-            with open(self.log_path, 'r', encoding='utf-8') as f:  # Explicit UTF-8 encoding
-                for line in f:
-                    self._process_line(line)
-                self.last_position = f.tell()
-            self.logger.debug("Processed %d bytes of existing log", self.last_position)
-        except UnicodeDecodeError:
-            # Fallback to latin1 if UTF-8 fails
-            with open(self.log_path, 'r', encoding='utf-8') as f:
-                self.logger.warning("Using latin1 fallback encoding for log file")
-                for line in f:
-                    self._process_line(line)
-                self.last_position = f.tell()
-        except FileNotFoundError:
-            self.logger.error("Log file not found: %s", self.log_path)
-            raise
-        except Exception as e:
-            self.logger.exception("Failed to process existing log content: %s", e)
-            raise
 
     def _start_watchdog(self):
         """Initialize and start the watchdog observer."""
@@ -99,104 +80,64 @@ class LogMonitor:
             self.observer.join()
         self.camera.cleanup()
 
-    def check_for_updates(self):
-        """Handle file change events detected by watchdog."""
+    def _process_existing_log(self):
         try:
-            try:
-                with open(self.log_path, 'r', encoding='utf-8') as f:
-                    f.seek(self.last_position)
-                    for line in f:
-                        self._process_line(line)
-                    self.last_position = f.tell()
-            except UnicodeDecodeError:
-                with open(self.log_path, 'r', encoding='latin1') as f:
-                    f.seek(self.last_position)
-                    for line in f:
-                        self._process_line(line)
-                    self.last_position = f.tell()
+            with open(self.log_path, 'r', encoding=self.encoding) as f:
+                for line in f:
+                    self._process_line(line)
+                self.last_position = f.tell()
+            self.logger.debug("Processed %d bytes of log", self.last_position)
         except Exception as e:
-            self.logger.error("Error reading log updates: %s", e)
+            self.logger.exception("Log init read failed: %s", e)
+            raise
+
+    def check_for_updates(self):
+        try:
+            with open(self.log_path, 'r', encoding=self.encoding) as f:
+                f.seek(self.last_position)
+                for line in f:
+                    self._process_line(line)
+                self.last_position = f.tell()
+        except Exception as e:
+            self.logger.error("Log read update failed: %s", e)
+
 
     def _process_line(self, line: str):
         """Process a single log line for events."""
         try:
             if "Прожиг" in line:
-                self._handle_layer_change(line)
-            elif 'Отсыпка' in line:
-                self._handle_powder_event()
+                self.last_laser_line = line
+                self._handle_event(line, kind="Прожиг")
+            elif "Отсыпка" in line:
+                self._handle_event(line, kind="Отсыпка")
         except Exception as e:
-            self.logger.error("Error processing log line '%s': %s", line.strip(), e)
+            self.logger.error("Error processing line '%s': %s", line.strip(), e)
 
-    def _handle_layer_change(self, line: str):
-        """Update current layer number from log event."""
+    def _handle_event(self, line: str, kind: str):
         try:
-            self.last_layer = int(line.split(" ")[2])
-            self.logger.debug("Layer changed to %d", self.last_layer)
-        except (IndexError, ValueError):
-            self.logger.error("Failed to parse layer number from line: %s", line.strip())
-            raise
-
-    def _handle_powder_event(self):
-        """Handle powder deposition event with comprehensive logging and error handling.
-        
-        Workflow:
-        1. Validates layer information
-        2. Captures powder deposition image
-        3. Waits specified delay with countdown logging
-        4. Captures start layer image
-        5. Maintains all directory structures
-        
-        Raises:
-            RuntimeError: If camera capture fails after retries
-        """
-        try:
-            # Validate layer information
-            if self.last_layer < -1:
-                self.logger.warning("Powder event detected with invalid layer number")
-                return
-
-            current_layer = self.last_layer + 1
-            timestamp = datetime.now().strftime("%Y.%m.%d_%H:%M:%S_%f")
-            self.logger.info("Processing powder event for layer %d at %s", 
-                            current_layer, timestamp)
-
-            # Create necessary directories
-            powder_dir = Path(self.save_root) / self.part_name / "Отсыпка"
-            start_dir = Path(self.save_root) / self.part_name / "Старт"
-            
-            powder_dir.mkdir(parents=True, exist_ok=True)
-            start_dir.mkdir(parents=True, exist_ok=True)
-
-            # First capture - powder deposition
-            self.logger.debug("Capturing powder deposition image...")
-            if not self.camera.capture_image(str(powder_dir), current_layer, self.project_name):
-                raise RuntimeError("Failed to capture powder deposition image")
-
-            # Wait before second capture with countdown logging
-            self.logger.info("Waiting %.2f seconds before start capture...", self.capture_delay)
-            for remaining in range(int(self.capture_delay), 0, -1):
-                self.logger.info("Countdown: %d seconds remaining...", remaining)
-                time.sleep(1)
-
-            # Second capture - layer start
-            self.logger.debug("Capturing layer start image...")
-            if not self.camera.capture_image(str(start_dir), current_layer, self.project_name):
-                raise RuntimeError("Failed to capture layer start image")
-
-            self.logger.info("Successfully processed powder event for layer %d", current_layer)
-
-        except RuntimeError as e:
-            self.logger.error("Powder event processing failed: %s", e)
-            raise  # Re-raise to allow upper-level handling
+            if kind == "Прожиг":
+                match = re.search(r"\s(\d+)\s+Прожиг", line)
+                if not match:
+                    self.logger.warning("Could not extract layer number from Прожиг line: %s", line.strip())
+                    return
+                self.layer_number = int(match.group(1))
+                self._capture_image(kind, self.layer_number)
+            elif kind == "Отсыпка":
+                if self.layer_number is None:
+                    self.logger.warning("Skipping Отсыпка capture — no valid Прожиг seen yet.")
+                    return
+                self.logger.info("Waiting %.2f seconds before Отсыпка capture...", self.capture_delay)
+                time.sleep(self.capture_delay)
+                self._capture_image(kind, self.layer_number)
         except Exception as e:
-            self.logger.exception("Unexpected error during powder event handling: %s", e)
-            raise
+            self.logger.error("Failed to handle %s event: %s", kind, e)
 
-    def _capture_image(self, folder: str, layer: int):
-        """Wrapper for camera capture with logging."""
-        self.logger.debug("Capturing image to %s for layer %d", folder, layer)
-        try:
-            self.camera.capture_image(folder, layer, self.project_name)
-        except Exception as e:
-            self.logger.error("Image capture failed for %s: %s", folder, e)
-            raise
+
+    def _capture_image(self, kind: str, layer: int):
+        """Capture image with correct metadata."""
+        folder = self.save_root / self.part_name / kind
+        folder.mkdir(parents=True, exist_ok=True)
+
+        self.logger.info("Capturing %s image for layer %d", kind, layer)
+        if not self.camera.capture_image(str(folder), layer, self.project_name):
+            self.logger.error("Capture failed for %s, layer %d", kind, layer)

@@ -5,6 +5,7 @@ project_name = "SLM_ProjectA"
 
 [log]
 path = "logs/2025.04.28.log"  # Log file to monitor
+encoding = "windows-1251"
 
 [capture]
 delay = 11.25  # Delay between captures in seconds
