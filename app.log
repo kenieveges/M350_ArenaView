@@ -1,0 +1,956 @@
+2025-05-01 18:19:17,061 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'logs/2025.04.28.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-01 18:19:37,934 - root - ERROR - Unexpected error occurred during execution: name 'ImageProcessor' is not defined
+Traceback (most recent call last):
+  File "c:\Users\Technic\Documents\M350_ArenaView\src\main.py", line 64, in main
+    with CameraController(
+         ^^^^^^^^^^^^^^^^^
+  File "c:\Users\Technic\Documents\M350_ArenaView\src\camera_controller.py", line 23, in __init__
+    self.processor = ImageProcessor()
+                     ^^^^^^^^^^^^^^
+NameError: name 'ImageProcessor' is not defined
+2025-05-01 18:21:13,192 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'logs/2025.04.28.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-01 18:21:24,935 - root - ERROR - Unexpected error occurred during execution: ImageProcessor.__init__() missing 1 required positional argument: 'config'
+Traceback (most recent call last):
+  File "c:\Users\Technic\Documents\M350_ArenaView\src\main.py", line 64, in main
+    with CameraController(
+         ^^^^^^^^^^^^^^^^^
+  File "c:\Users\Technic\Documents\M350_ArenaView\src\camera_controller.py", line 27, in __init__
+    self.processor = ImageProcessor()
+                     ^^^^^^^^^^^^^^^^
+TypeError: ImageProcessor.__init__() missing 1 required positional argument: 'config'
+2025-05-01 18:25:36,125 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'logs/2025.04.28.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-01 18:25:43,021 - camera_controller - INFO - Initializing camera controller
+2025-05-01 18:25:43,022 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-01 18:25:44,908 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-01 18:25:44,924 - camera_controller - INFO - Camera initialized successfully
+2025-05-01 18:25:51,556 - log_monitor - INFO - Initialized log monitor for c:\Users\Technic\Documents\M350_ArenaView\logs\2025.04.28.log
+2025-05-01 18:25:52,958 - log_monitor - INFO - Starting watchdog monitoring for c:\Users\Technic\Documents\M350_ArenaView\logs\2025.04.28.log
+2025-05-01 18:25:52,966 - log_monitor - INFO - Watchdog started successfully
+2025-05-01 18:26:19,647 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'logs/2025.04.28.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-01 18:26:19,647 - camera_controller - INFO - Initializing camera controller
+2025-05-01 18:26:19,647 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-01 18:26:21,498 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-01 18:26:21,514 - camera_controller - INFO - Camera initialized successfully
+2025-05-01 18:26:21,514 - log_monitor - INFO - Initialized log monitor for c:\Users\Technic\Documents\M350_ArenaView\logs\2025.04.28.log
+2025-05-01 18:26:21,514 - log_monitor - INFO - Starting watchdog monitoring for c:\Users\Technic\Documents\M350_ArenaView\logs\2025.04.28.log
+2025-05-01 18:26:21,514 - log_monitor - INFO - Watchdog started successfully
+2025-05-06 12:05:14,843 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 12:05:14,843 - camera_controller - INFO - Initializing camera controller
+2025-05-06 12:05:14,843 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 12:05:16,840 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 12:05:16,852 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 12:05:16,853 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 12:05:16,853 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 12:05:16,854 - log_monitor - INFO - Watchdog started successfully
+2025-05-06 14:22:50,527 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:22:50,530 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:22:50,532 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:22:50,533 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:22:50,533 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:22:50,536 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:22:50,668 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:22:50,681 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:22:50,695 - log_monitor - ERROR - Capture failed for Прожиг, layer 0
+2025-05-06 14:22:50,701 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:23:01,954 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:23:02,060 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:02,061 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:02,062 - log_monitor - ERROR - Capture failed for Отсыпка, layer 0
+2025-05-06 14:23:02,062 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 14:23:02,170 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:02,171 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:02,172 - log_monitor - ERROR - Capture failed for Прожиг, layer 1
+2025-05-06 14:23:02,172 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:23:13,424 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 14:23:13,554 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:13,554 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:13,555 - log_monitor - ERROR - Capture failed for Отсыпка, layer 1
+2025-05-06 14:23:13,555 - log_monitor - INFO - Capturing Прожиг image for layer 2
+2025-05-06 14:23:13,682 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:13,684 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:13,685 - log_monitor - ERROR - Capture failed for Прожиг, layer 2
+2025-05-06 14:23:13,686 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:23:24,936 - log_monitor - INFO - Capturing Отсыпка image for layer 2
+2025-05-06 14:23:25,040 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:25,040 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:25,041 - log_monitor - ERROR - Capture failed for Отсыпка, layer 2
+2025-05-06 14:23:25,041 - log_monitor - INFO - Capturing Прожиг image for layer 3
+2025-05-06 14:23:25,146 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:25,147 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:25,147 - log_monitor - ERROR - Capture failed for Прожиг, layer 3
+2025-05-06 14:23:25,148 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:23:36,399 - log_monitor - INFO - Capturing Отсыпка image for layer 3
+2025-05-06 14:23:36,501 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:36,502 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:23:36,502 - log_monitor - ERROR - Capture failed for Отсыпка, layer 3
+2025-05-06 14:29:16,839 - log_monitor - INFO - Capturing Прожиг image for layer 4
+2025-05-06 14:29:16,967 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:16,968 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:16,969 - log_monitor - ERROR - Capture failed for Прожиг, layer 4
+2025-05-06 14:29:16,970 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:29:28,222 - log_monitor - INFO - Capturing Отсыпка image for layer 4
+2025-05-06 14:29:28,322 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:28,323 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:28,324 - log_monitor - ERROR - Capture failed for Отсыпка, layer 4
+2025-05-06 14:29:28,325 - log_monitor - INFO - Capturing Прожиг image for layer 5
+2025-05-06 14:29:28,434 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:28,435 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:28,436 - log_monitor - ERROR - Capture failed for Прожиг, layer 5
+2025-05-06 14:29:28,437 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:29:39,688 - log_monitor - INFO - Capturing Отсыпка image for layer 5
+2025-05-06 14:29:39,793 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:39,794 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:39,795 - log_monitor - ERROR - Capture failed for Отсыпка, layer 5
+2025-05-06 14:29:49,741 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:29:49,741 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:29:49,742 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:29:51,746 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:29:51,752 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:29:51,753 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:29:51,754 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:29:51,754 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:29:51,755 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:29:51,755 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:29:51,755 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:29:51,756 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:29:51,756 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:29:51,884 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:51,886 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:29:51,886 - log_monitor - ERROR - Capture failed for Прожиг, layer 0
+2025-05-06 14:29:51,887 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:30:03,139 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:30:03,247 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:03,249 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:03,249 - log_monitor - ERROR - Capture failed for Отсыпка, layer 0
+2025-05-06 14:30:03,250 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 14:30:03,359 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:03,360 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:03,360 - log_monitor - ERROR - Capture failed for Прожиг, layer 1
+2025-05-06 14:30:03,361 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:30:14,612 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 14:30:14,713 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:14,713 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:14,714 - log_monitor - ERROR - Capture failed for Отсыпка, layer 1
+2025-05-06 14:30:14,714 - log_monitor - INFO - Capturing Прожиг image for layer 2
+2025-05-06 14:30:14,819 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:14,819 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:14,820 - log_monitor - ERROR - Capture failed for Прожиг, layer 2
+2025-05-06 14:30:14,820 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:30:26,072 - log_monitor - INFO - Capturing Отсыпка image for layer 2
+2025-05-06 14:30:26,172 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:26,173 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:26,173 - log_monitor - ERROR - Capture failed for Отсыпка, layer 2
+2025-05-06 14:30:26,174 - log_monitor - INFO - Capturing Прожиг image for layer 3
+2025-05-06 14:30:26,282 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:26,283 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:26,283 - log_monitor - ERROR - Capture failed for Прожиг, layer 3
+2025-05-06 14:30:26,284 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:30:37,536 - log_monitor - INFO - Capturing Отсыпка image for layer 3
+2025-05-06 14:30:37,649 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:37,651 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:37,652 - log_monitor - ERROR - Capture failed for Отсыпка, layer 3
+2025-05-06 14:30:37,654 - log_monitor - INFO - Capturing Прожиг image for layer 4
+2025-05-06 14:30:37,762 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:37,763 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:37,764 - log_monitor - ERROR - Capture failed for Прожиг, layer 4
+2025-05-06 14:30:37,764 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:30:49,016 - log_monitor - INFO - Capturing Отсыпка image for layer 4
+2025-05-06 14:30:49,121 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:49,122 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:49,123 - log_monitor - ERROR - Capture failed for Отсыпка, layer 4
+2025-05-06 14:30:49,124 - log_monitor - INFO - Capturing Прожиг image for layer 5
+2025-05-06 14:30:49,231 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:49,232 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:30:49,233 - log_monitor - ERROR - Capture failed for Прожиг, layer 5
+2025-05-06 14:30:49,233 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:31:00,485 - log_monitor - INFO - Capturing Отсыпка image for layer 5
+2025-05-06 14:31:00,590 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:31:00,591 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:31:00,591 - log_monitor - ERROR - Capture failed for Отсыпка, layer 5
+2025-05-06 14:31:00,591 - log_monitor - INFO - Capturing Прожиг image for layer 6
+2025-05-06 14:31:00,709 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:31:00,710 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:31:00,711 - log_monitor - ERROR - Capture failed for Прожиг, layer 6
+2025-05-06 14:31:00,713 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:31:11,967 - log_monitor - INFO - Capturing Отсыпка image for layer 6
+2025-05-06 14:31:12,080 - camera_controller - ERROR - Error capturing image: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:31:12,081 - camera_controller - ERROR - Error during cleanup: 
+
+SaveC ERROR :
+	SC_ERR_RESOURCE_IN_USE -1004
+
+
+2025-05-06 14:31:12,082 - log_monitor - ERROR - Capture failed for Отсыпка, layer 6
+2025-05-06 14:31:12,084 - log_monitor - INFO - Watchdog started successfully
+2025-05-06 14:31:58,993 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:31:58,993 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:31:58,994 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:32:00,816 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:32:00,821 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:32:00,822 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:32:00,823 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:32:00,831 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:32:00,831 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:32:00,832 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:32:00,832 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:32:00,832 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:32:00,833 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:32:02,069 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:02,194 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:32:13,446 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:32:14,689 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:14,815 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 14:32:16,144 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:16,271 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:32:27,523 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 14:32:28,766 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:28,891 - log_monitor - INFO - Capturing Прожиг image for layer 2
+2025-05-06 14:32:30,222 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:30,347 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:32:41,599 - log_monitor - INFO - Capturing Отсыпка image for layer 2
+2025-05-06 14:32:42,841 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:42,968 - log_monitor - INFO - Capturing Прожиг image for layer 3
+2025-05-06 14:32:44,299 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:44,423 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:32:55,675 - log_monitor - INFO - Capturing Отсыпка image for layer 3
+2025-05-06 14:32:56,918 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:57,044 - log_monitor - INFO - Capturing Прожиг image for layer 4
+2025-05-06 14:32:58,389 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:32:58,500 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:33:09,752 - log_monitor - INFO - Capturing Отсыпка image for layer 4
+2025-05-06 14:33:10,995 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:33:11,121 - log_monitor - INFO - Capturing Прожиг image for layer 5
+2025-05-06 14:33:12,447 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:33:12,574 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:33:23,826 - log_monitor - INFO - Capturing Отсыпка image for layer 5
+2025-05-06 14:33:25,067 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:33:25,191 - log_monitor - INFO - Capturing Прожиг image for layer 6
+2025-05-06 14:33:26,510 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:33:26,635 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:33:37,886 - log_monitor - INFO - Capturing Отсыпка image for layer 6
+2025-05-06 14:33:39,132 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:33:39,257 - log_monitor - INFO - Capturing Прожиг image for layer 7
+2025-05-06 14:33:40,585 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:33:40,711 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:33:51,963 - log_monitor - INFO - Capturing Отсыпка image for layer 7
+2025-05-06 14:33:53,213 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:33:53,332 - log_monitor - INFO - Watchdog started successfully
+2025-05-06 14:34:37,836 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:34:37,837 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:34:37,838 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:34:39,659 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:34:39,664 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:34:39,665 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:34:39,665 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:34:39,678 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:34:39,678 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:34:39,679 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:34:39,679 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:34:39,679 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:34:39,680 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:34:40,968 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:34:41,094 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:34:44,113 - log_monitor - INFO - Shutting down monitor
+2025-05-06 14:34:44,122 - camera_controller - INFO - Camera resources released
+2025-05-06 14:34:44,123 - camera_controller - INFO - Camera resources released
+2025-05-06 14:37:50,171 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:37:50,172 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:37:50,173 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:37:51,993 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:37:51,998 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:37:51,998 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:37:51,998 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:37:52,005 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:37:52,006 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:37:52,006 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:37:52,007 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:37:52,007 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:37:52,008 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:37:53,509 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:37:53,634 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:38:04,886 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:38:06,312 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:38:06,438 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 14:38:07,952 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:38:08,076 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:39:54,042 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:40:24,157 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:40:30,263 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:40:32,089 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:40:32,096 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:40:55,938 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:41:00,586 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:41:02,755 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:41:02,756 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:41:02,757 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:41:02,758 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:41:02,759 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:41:02,764 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:41:04,212 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:41:04,327 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:41:15,580 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:41:17,006 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:41:17,130 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 14:41:18,829 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:41:18,953 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:41:56,971 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:42:01,799 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:42:01,800 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:42:03,622 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:42:03,630 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:42:10,231 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:42:13,664 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:43:06,152 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:43:11,083 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:43:14,328 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:43:17,530 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:43:22,479 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:43:58,422 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:47:37,796 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:47:37,796 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:47:37,796 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:47:39,606 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:47:39,611 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:47:39,611 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:47:39,612 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:47:39,619 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:47:39,619 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:47:39,619 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:47:39,620 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:47:39,620 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:47:39,621 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:47:41,152 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 14:47:41,288 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:50:37,834 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:50:37,834 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:50:37,834 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:50:39,657 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:50:39,657 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:50:39,657 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:50:39,657 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:50:39,673 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:50:39,673 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:50:39,673 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:50:39,673 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:50:39,673 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:50:39,673 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:50:41,242 - camera_controller - ERROR - Error saving image: Config file not found: config.toml
+2025-05-06 14:50:41,376 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:50:52,634 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:50:54,237 - camera_controller - ERROR - Error saving image: Config file not found: config.toml
+2025-05-06 14:50:54,370 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 14:50:55,879 - camera_controller - ERROR - Error saving image: Config file not found: config.toml
+2025-05-06 14:50:56,010 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:52:20,308 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:52:20,311 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:52:20,311 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:52:22,127 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:52:22,143 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:52:22,143 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:52:25,494 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:52:26,626 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:52:26,627 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:52:26,628 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:52:26,629 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:52:26,629 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:52:26,633 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:52:28,111 - camera_controller - ERROR - Error saving image: Config file not found: config.toml
+2025-05-06 14:52:28,248 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:52:55,488 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:53:12,630 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:53:12,631 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:53:14,442 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:53:14,462 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:53:20,531 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:53:23,370 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:53:45,169 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:53:49,853 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:53:57,672 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:54:03,422 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:54:09,558 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:54:18,304 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:54:19,762 - camera_controller - ERROR - Error saving image: Config file not found: config.toml
+2025-05-06 14:54:44,006 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:55:12,547 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:56:49,424 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:56:49,424 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:56:49,424 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:56:51,250 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:56:51,250 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:56:51,250 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:56:51,250 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:56:51,266 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:56:51,266 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:56:51,266 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:56:51,266 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:56:51,266 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:56:51,266 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:56:52,748 - camera_controller - ERROR - Error saving image: Config file not found: output\config.toml
+2025-05-06 14:56:52,872 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:57:13,247 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 14:57:13,263 - camera_controller - INFO - Initializing camera controller
+2025-05-06 14:57:13,263 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 14:57:15,084 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 14:57:15,090 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 14:57:15,090 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:57:15,091 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 14:57:15,091 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:57:15,092 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:57:15,092 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:57:15,092 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:57:15,092 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 14:57:15,093 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 14:57:16,557 - camera_controller - ERROR - Error saving image: OpenCV(4.11.0) :-1: error: (-5:Bad argument) in function 'warpPerspective'
+> Overload resolution failed:
+>  - src is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'src'
+
+2025-05-06 14:57:16,670 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:57:27,922 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 14:57:29,340 - camera_controller - ERROR - Error saving image: OpenCV(4.11.0) :-1: error: (-5:Bad argument) in function 'warpPerspective'
+> Overload resolution failed:
+>  - src is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'src'
+
+2025-05-06 14:57:29,469 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 14:57:30,971 - camera_controller - ERROR - Error saving image: OpenCV(4.11.0) :-1: error: (-5:Bad argument) in function 'warpPerspective'
+> Overload resolution failed:
+>  - src is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'src'
+
+2025-05-06 14:57:31,112 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 14:57:42,363 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 14:57:43,807 - camera_controller - ERROR - Error saving image: OpenCV(4.11.0) :-1: error: (-5:Bad argument) in function 'warpPerspective'
+> Overload resolution failed:
+>  - src is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'src'
+
+2025-05-06 14:57:43,901 - log_monitor - INFO - Capturing Прожиг image for layer 2
+2025-05-06 14:57:45,419 - camera_controller - ERROR - Error saving image: OpenCV(4.11.0) :-1: error: (-5:Bad argument) in function 'warpPerspective'
+> Overload resolution failed:
+>  - src is not a numpy array, neither a scalar
+>  - Expected Ptr<cv::UMat> for argument 'src'
+
+2025-05-06 14:57:45,544 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:01:25,299 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:01:25,303 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:01:25,304 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:01:27,133 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:01:27,137 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:01:27,137 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:01:30,252 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:01:40,008 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:01:57,148 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:02:07,241 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:02:12,151 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:02:12,153 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:02:28,741 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:03:14,817 - camera_controller - ERROR - Error saving image: cannot reshape array of size 1 into shape (3648,5472,3)
+2025-05-06 15:03:39,544 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:03:50,796 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:13:25,675 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:13:25,676 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:13:25,677 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:13:27,494 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:13:27,503 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:13:27,503 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:13:27,504 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:13:27,511 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:13:27,512 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:13:27,512 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:13:27,512 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:13:27,513 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:13:27,513 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:13:28,872 - camera_controller - ERROR - Error saving image: '_Buffer' object has no attribute 'size'
+2025-05-06 15:13:29,053 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:13:40,305 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:13:41,675 - camera_controller - ERROR - Error saving image: '_Buffer' object has no attribute 'size'
+2025-05-06 15:13:41,857 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 15:13:43,314 - camera_controller - ERROR - Error saving image: '_Buffer' object has no attribute 'size'
+2025-05-06 15:13:43,496 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:13:54,747 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 15:14:54,496 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:14:54,497 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:14:54,497 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:14:56,307 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:14:56,312 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:14:56,312 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:14:56,313 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:14:56,321 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:14:56,321 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:14:56,325 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:14:56,326 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:14:56,327 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:14:56,327 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:14:57,825 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:14:57,950 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:15:09,201 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:15:10,626 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:10,754 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 15:15:12,267 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:12,393 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:15:23,644 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 15:15:25,069 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:25,196 - log_monitor - INFO - Capturing Прожиг image for layer 2
+2025-05-06 15:15:26,710 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:26,836 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:15:38,086 - log_monitor - INFO - Capturing Отсыпка image for layer 2
+2025-05-06 15:15:39,515 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:39,639 - log_monitor - INFO - Capturing Прожиг image for layer 3
+2025-05-06 15:15:41,150 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:41,278 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:15:52,529 - log_monitor - INFO - Capturing Отсыпка image for layer 3
+2025-05-06 15:15:53,955 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:54,081 - log_monitor - INFO - Capturing Прожиг image for layer 4
+2025-05-06 15:15:55,596 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:15:55,720 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:16:06,971 - log_monitor - INFO - Capturing Отсыпка image for layer 4
+2025-05-06 15:16:08,395 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:16:08,524 - log_monitor - INFO - Capturing Прожиг image for layer 5
+2025-05-06 15:16:10,039 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:16:10,163 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:16:21,414 - log_monitor - INFO - Capturing Отсыпка image for layer 5
+2025-05-06 15:16:22,839 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:16:22,966 - log_monitor - INFO - Capturing Прожиг image for layer 6
+2025-05-06 15:16:24,479 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:16:24,605 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:16:35,857 - log_monitor - INFO - Capturing Отсыпка image for layer 6
+2025-05-06 15:16:37,292 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:16:37,409 - log_monitor - INFO - Capturing Прожиг image for layer 7
+2025-05-06 15:16:38,925 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:16:39,047 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:17:34,773 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:17:34,774 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:17:34,774 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:17:36,592 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:17:36,598 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:17:36,598 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:17:36,599 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:17:36,606 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:36,606 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:36,607 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:36,607 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:36,608 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:36,608 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:17:38,034 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:17:38,158 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:17:53,917 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:17:53,919 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:17:53,921 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:17:55,742 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:17:55,749 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:17:55,751 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:17:56,697 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:17:56,699 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:56,700 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:56,701 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:56,703 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:56,704 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:17:59,410 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:18:00,903 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:18:20,345 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:18:31,597 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:18:33,107 - camera_controller - ERROR - Error saving image: object of type 'c_ubyte' has no len()
+2025-05-06 15:19:20,345 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 15:20:22,003 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:20:22,004 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:20:22,004 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:20:23,819 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:20:23,827 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:20:23,827 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:20:23,827 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:20:23,828 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:20:23,828 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:20:23,829 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:20:23,829 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:20:23,829 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:20:23,830 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:20:25,407 - camera_controller - INFO - Image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-20-25_292123_layer_0.tiff
+2025-05-06 15:20:25,601 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:20:36,853 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:20:38,424 - camera_controller - INFO - Image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Отсыпка\SLM_ProjectA_2025-05-06_15-20-38_281362_layer_0.tiff
+2025-05-06 15:20:38,588 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 15:20:40,243 - camera_controller - INFO - Image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-20-40_100495_layer_1.tiff
+2025-05-06 15:20:40,408 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:20:51,660 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 15:20:53,205 - camera_controller - INFO - Image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Отсыпка\SLM_ProjectA_2025-05-06_15-20-53_086742_layer_1.tiff
+2025-05-06 15:20:53,395 - log_monitor - INFO - Capturing Прожиг image for layer 2
+2025-05-06 15:20:55,053 - camera_controller - INFO - Image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-20-54_909863_layer_2.tiff
+2025-05-06 15:20:55,218 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:21:06,469 - log_monitor - INFO - Capturing Отсыпка image for layer 2
+2025-05-06 15:21:08,035 - camera_controller - INFO - Image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Отсыпка\SLM_ProjectA_2025-05-06_15-21-07_896111_layer_2.tiff
+2025-05-06 15:21:08,204 - log_monitor - INFO - Capturing Прожиг image for layer 3
+2025-05-06 15:21:09,836 - camera_controller - INFO - Image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-21-09_718234_layer_3.tiff
+2025-05-06 15:21:10,026 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:26:48,282 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:26:48,283 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:26:48,283 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:26:50,100 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:26:50,105 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:26:50,106 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:26:50,106 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:26:50,114 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:26:50,114 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:26:50,115 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:26:50,115 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:26:50,116 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:26:50,117 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:26:52,588 - camera_controller - ERROR - Error saving image: a bytes-like object is required, not 'list'
+2025-05-06 15:26:52,835 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:27:04,087 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:27:06,490 - camera_controller - ERROR - Error saving image: a bytes-like object is required, not 'list'
+2025-05-06 15:27:06,737 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 15:27:09,229 - camera_controller - ERROR - Error saving image: a bytes-like object is required, not 'list'
+2025-05-06 15:27:09,474 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:27:11,717 - log_monitor - INFO - Shutting down monitor
+2025-05-06 15:27:11,726 - camera_controller - INFO - Camera resources released
+2025-05-06 15:27:11,727 - camera_controller - INFO - Camera resources released
+2025-05-06 15:28:38,416 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:28:38,417 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:28:38,417 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:28:40,230 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:28:40,235 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:28:40,236 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:28:40,236 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:28:40,237 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:28:40,237 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:28:40,237 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:28:40,238 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:28:40,238 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:28:40,239 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:28:41,769 - camera_controller - ERROR - Error saving image: '_Buffer' object has no attribute 'size'
+2025-05-06 15:28:41,896 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:29:57,623 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:29:57,626 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:29:57,627 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:29:59,447 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:29:59,454 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:29:59,455 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:30:01,983 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:30:01,993 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:30:01,994 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:30:01,995 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:30:01,996 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:30:01,997 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:30:06,611 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:30:16,191 - camera_controller - ERROR - Error saving image: '_Buffer' object has no attribute 'size'
+2025-05-06 15:30:36,384 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:31:13,185 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:33:57,347 - camera_controller - ERROR - Error saving image: '_Buffer' object has no attribute 'size'
+2025-05-06 15:34:16,203 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 15:34:30,041 - camera_controller - ERROR - Error saving image: '_Buffer' object has no attribute 'size'
+2025-05-06 15:37:49,113 - root - INFO - Application starting with config:
+{'save': {'root': 'output', 'part_name': 'test', 'project_name': 'SLM_ProjectA'}, 'log': {'path': 'C:/M350/LaserStudio/x64/Release/Logs/06.05.2025.log', 'encoding': 'windows-1251'}, 'capture': {'delay': 11.25}, 'camera': {'retry_attempts': 6, 'retry_delay': 10}, 'logging': {'level': 'INFO', 'file': 'app.log', 'max_size': 1048576, 'backup_count': 3}, 'processing': {'width_new': 1024, 'height_new': 1024, 'perspective_points': [[1209, 309], [4405, 272], [4666, 3536], [1010, 3561]]}}
+2025-05-06 15:37:49,114 - camera_controller - INFO - Initializing camera controller
+2025-05-06 15:37:49,114 - camera_controller - INFO - Starting camera initialization (retries: 6, delay: 10s)
+2025-05-06 15:37:50,923 - camera_controller - INFO - Camera connection established on attempt 1
+2025-05-06 15:37:50,928 - camera_controller - INFO - Camera initialized successfully
+2025-05-06 15:37:50,928 - log_monitor - INFO - Initialized log monitor for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:37:50,928 - log_monitor - INFO - Starting watchdog monitoring for C:\M350\LaserStudio\x64\Release\Logs\06.05.2025.log
+2025-05-06 15:37:50,936 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:37:50,936 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:37:50,937 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:37:50,937 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:37:50,937 - log_monitor - WARNING - Skipping Отсыпка capture — no valid Прожиг seen yet.
+2025-05-06 15:37:50,938 - log_monitor - INFO - Capturing Прожиг image for layer 0
+2025-05-06 15:37:52,621 - camera_controller - INFO - Raw image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-37-52_478166_layer_0.tiff
+2025-05-06 15:37:52,634 - camera_controller - ERROR - Error saving or transforming image: Failed to read saved image: c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-37-52_478166_layer_0.tiff
+2025-05-06 15:37:52,787 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:38:04,039 - log_monitor - INFO - Capturing Отсыпка image for layer 0
+2025-05-06 15:38:05,603 - camera_controller - INFO - Raw image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Отсыпка\SLM_ProjectA_2025-05-06_15-38-05_463416_layer_0.tiff
+2025-05-06 15:38:05,610 - camera_controller - ERROR - Error saving or transforming image: Failed to read saved image: c:\Users\Technic\Documents\M350_ArenaView\output\test\Отсыпка\SLM_ProjectA_2025-05-06_15-38-05_463416_layer_0.tiff
+2025-05-06 15:38:05,774 - log_monitor - INFO - Capturing Прожиг image for layer 1
+2025-05-06 15:38:07,437 - camera_controller - INFO - Raw image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-38-07_291524_layer_1.tiff
+2025-05-06 15:38:07,442 - camera_controller - ERROR - Error saving or transforming image: Failed to read saved image: c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-38-07_291524_layer_1.tiff
+2025-05-06 15:38:07,595 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:38:18,847 - log_monitor - INFO - Capturing Отсыпка image for layer 1
+2025-05-06 15:38:20,410 - camera_controller - INFO - Raw image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Отсыпка\SLM_ProjectA_2025-05-06_15-38-20_272784_layer_1.tiff
+2025-05-06 15:38:20,415 - camera_controller - ERROR - Error saving or transforming image: Failed to read saved image: c:\Users\Technic\Documents\M350_ArenaView\output\test\Отсыпка\SLM_ProjectA_2025-05-06_15-38-20_272784_layer_1.tiff
+2025-05-06 15:38:20,582 - log_monitor - INFO - Capturing Прожиг image for layer 2
+2025-05-06 15:38:22,243 - camera_controller - INFO - Raw image saved to c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-38-22_095906_layer_2.tiff
+2025-05-06 15:38:22,247 - camera_controller - ERROR - Error saving or transforming image: Failed to read saved image: c:\Users\Technic\Documents\M350_ArenaView\output\test\Прожиг\SLM_ProjectA_2025-05-06_15-38-22_095906_layer_2.tiff
+2025-05-06 15:38:22,404 - log_monitor - INFO - Waiting 11.25 seconds before Отсыпка capture...
+2025-05-06 15:38:27,501 - log_monitor - INFO - Shutting down monitor
+2025-05-06 15:38:27,509 - camera_controller - INFO - Camera resources released
+2025-05-06 15:38:27,510 - camera_controller - INFO - Camera resources released
