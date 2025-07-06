@@ -27,6 +27,12 @@ class CameraController:
         
         self._initialize_camera()
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.cleanup()
+
     def _initialize_camera(self):
         """Initialize camera with retry logic."""
         self.logger.info("Starting camera initialization (retries: %s, delay: %ss)", 
@@ -138,12 +144,6 @@ class CameraController:
                 self.device.stop_stream()
         except Exception as e:
             self.logger.error(f"Error during cleanup: {e}")
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.cleanup()
 
     def cleanup(self):
         """Clean up all camera resources."""

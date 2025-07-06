@@ -8,3 +8,6 @@ def load_config(config_path: str = 'config.toml') -> dict:
     
     with open(path, 'rb') as f:
         return tomllib.load(f)
+    
+if __name__ == "__main__":
+    config = load_config(r"C:\Users\ksk\Documents\2025.07.06 - M450Viewer\config\config.toml")

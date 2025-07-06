@@ -54,8 +54,7 @@ def main():
         # Load configuration first as it might fail
         config = load_config(config_path)
         logger.info("Application starting with config:\n%s", config)
-        
-        # Validate essential configuration
+        # Checks that all 'save' params are present in the config dict
         if not all(key in config['save'] for key in ['root', 'part_name', 'project_name']):
             raise ValueError("Missing required save configuration")
         # Resolve all paths relative to project root
