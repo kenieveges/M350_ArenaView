@@ -1,8 +1,8 @@
 import sys
 from pathlib import Path
 from config_loader import load_config
-from camera_controller import CameraController
 from log_monitor import LogMonitor
+from camera_controller import Camera
 from logger import setup_logging
 
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -60,7 +60,7 @@ def main():
         # Resolve all paths relative to project root
         log_path = PROJECT_ROOT / config['log']['path']
         save_root = PROJECT_ROOT / config['save']['root']
-        with CameraController(
+        with Camera(
             retry_attempts=config['camera']['retry_attempts'],
             retry_delay=config['camera']['retry_delay'],
         ) as camera:

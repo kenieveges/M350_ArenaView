@@ -12,9 +12,13 @@ from camera_controller import CameraController
 class LogMonitor:
     """Monitor SLM printer log files for specific events and trigger camera captures."""
     
-    def __init__(self, log_path: str, camera: CameraController,
-                 save_root: str, part_name: str, capture_delay: float,
-                 project_name: str, encoding="utf-8"):
+    def __init__(self, log_path: str,
+                 camera: CameraController,
+                 save_root: str,
+                 part_name: str,
+                 capture_delay: float,
+                 project_name: str,
+                 encoding="utf-8"):
         """
         Initialize log monitor.
         
